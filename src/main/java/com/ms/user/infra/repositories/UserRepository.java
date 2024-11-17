@@ -1,4 +1,4 @@
-package com.ms.user.infra.repository;
+package com.ms.user.infra.repositories;
 
 import com.ms.user.infra.entity.UserEntity;
 import java.util.UUID;

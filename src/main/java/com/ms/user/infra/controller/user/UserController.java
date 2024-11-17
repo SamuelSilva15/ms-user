@@ -3,6 +3,7 @@ package com.ms.user.infra.controller.user;
 import com.ms.user.core.domain.user.save.SaveUserInput;
 import com.ms.user.core.domain.user.save.SaveUserOutput;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,6 @@ public class UserController {
     @PostMapping("/users")
     public ResponseEntity<SaveUserOutput> saveUser(@RequestBody @Valid SaveUserInput saveUserInput) {
         SaveUserOutput saveUserOutput = saveUserUsacase.execute(saveUserInput);
-        return ResponseEntity.ok().body(saveUserOutput);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saveUserOutput);
     }
 }
